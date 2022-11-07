@@ -1,5 +1,6 @@
-import { useId, useRef } from 'react'
+import { useRef } from 'react'
 import { IItenList } from '../../interfaces';
+import { v4 as uuidv4 } from 'uuid';
 
 interface InputProps {
   appenList: (value: IItenList) => void;
@@ -8,10 +9,11 @@ interface InputProps {
 export default function Input({appenList}:InputProps) {
   const inputRef = useRef<HTMLInputElement>(null)
   const hancleClick = () => {
-    if(inputRef.current?.value !== ""){
+    if(inputRef.current?.value !== "" && inputRef.current?.value !== null){
+      const inputValue = ""+(inputRef.current?.value)
       const dataItem = {
-        id: useId(),
-        name: String(inputRef.current?.value),
+        id: uuidv4(),
+        name: inputValue,
         isCompleted: false
       }
       appenList(dataItem)
