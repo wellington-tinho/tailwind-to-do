@@ -40,11 +40,11 @@ function App()   {
 
       <Input appenList={appenList}/>
 
-      {/* <ListItens 
+      <ListItens 
         list = {list}
         removeItem = {removeItem}
         updateItem = {updateItem}
-      /> */}
+      />
 
     </div>
   )
